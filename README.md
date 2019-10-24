@@ -29,14 +29,14 @@ In keeping with object-oriented programming in our BlackJack game a card will be
 * The Card has a type method ```newDeck(:_)``` that returns an array of 52 cards [Card]. Since an Ace card can have a value of 1 or 11 you can decide by passing in 1 or 11 as an argument when calling newDeck()
 * The stringyfy() method returns a String representation of the current card instance. e.g "10♣️" or "4♦️"
 
-#### Suit.swift
+#### Suit.swift      D O N E
 
 1. Create a new Swift file called Suit, create an enum of the same name that has a diamond, heart, spade and club case. 
 1. Make the raw value a String. 
 1. Assign the diamond case "♦️", heart case "♥️", spade "♠️" and club "♣️"
 1. Make sure your enum conforms to CaseIterable in order for the newDeck() method to work.
 
-#### FaceCard.swift
+#### FaceCard.swift    D O N E
 
 1. Create a new Swift file called FaceCard, create an enum of the same name that has a jack, queen and king case. 
 1. Make the raw value a String. 
@@ -44,7 +44,7 @@ In keeping with object-oriented programming in our BlackJack game a card will be
 1. Make sure your enum conforms to CaseIterable in order for the newDeck() method to work.
 
 
-#### Player.swift
+#### Player.swift      D O N E ( NOT SURE IF CORRECT )
 
 1. Create a new Swift file called Player, create a struct of the same name.
 1. Add the following properties ```score``` of type Int, ```cards``` array of type [Card] and ```playerName``` of type String. 

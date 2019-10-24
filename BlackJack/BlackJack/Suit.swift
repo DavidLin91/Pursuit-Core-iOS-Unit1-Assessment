@@ -8,7 +8,12 @@
 
 import Foundation
 
-enum Suit: String {
+
+// Assign the diamond case "♦️", heart case "♥️", spade "♠️" and club "♣️"
+// Make sure your enum conforms to CaseIterable in order for the newDeck() method to work.
+enum Suit: String, CaseIterable {
     case diamond = "♦️"
-    case
+    case club = "♣️"
+    case heart = "♥️"
+    case spade = "♠️"
 }

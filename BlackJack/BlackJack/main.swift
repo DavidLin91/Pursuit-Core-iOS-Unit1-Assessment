@@ -8,6 +8,32 @@
 
 import Foundation
 
-// TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
-// There are 52 in a deck of cards
+print(" W E L C O M E   T O    B L A C K J A C K")
+print(" ")
+
+// create an instance of the game
+//let game = Game()
+var responseLoop = true
+let gameOver = false
+let userPrompt = "Do you want to hit or pass (hit, pass)"
+let hit = "hit"
+let pass = "pass"
+
+print(userPrompt)
+
+repeat{    
+    let userResponseHitOrPass = readLine()!.lowercased()
+    if userResponseHitOrPass == hit.lowercased() {
+        print("hit function where a card is added to current card")
+        game.hitMe()
+    } else if userResponseHitOrPass == pass.lowercased() {
+        
+        print("function that will choose a random number for dealer")
+    } else {
+        print("Please type \"hit\" or \"pass\"")
+    }
+    
+    game.newGame()
+    
+}while responseLoop
+
