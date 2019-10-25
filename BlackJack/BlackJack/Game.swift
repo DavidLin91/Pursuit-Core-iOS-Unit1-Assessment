@@ -9,41 +9,48 @@
 import Foundation
 
 class Game {
-    //Instance Properties
+    
+    //INSTANCE PROPERTIES
     var deck = [Card]()
-    var player = Player()
-    var hitPlayer: Bool {
-        return !deck.isEmpty  // not sure how to do this
+    var player = Player(score: 0, cards: [Card](), playerName: "Player")
+    var hitPlayer = Bool() 
+    
+    //COMPUTED PROPERTIES
+    var hasMoreCards: Bool {
+        return !deck.isEmpty
+    } // if game ever runs out of cards, will return false
+    
+    var randomDealerScore: Int {
+        let scoreRange = 17...21
+        return scoreRange.randomElement()!
+    } //draws a random number for the computer and determines the winner of the game.
+    
+    //MARK: GAME METHOD
+     func newGame() {
+        player.cards.removeAll()
+        deck = Card.newDeck(aceValue: 1) // creates deck
+        player.score = 0
+    }     // resetting the game if the player wishes to continue
+    
+    // Do i need a stopHit function?
+    
+    func hitMe() {
+        if hasMoreCards == true { // if there are cards left in the deck
+            deck = deck.shuffled()
+            let newRandomCard = deck.popLast()! //pulls card from deck
+            player.cards.append(newRandomCard)// adds new card to hand
+            player.score += newRandomCard.value // adds all card values together
+            print(player.score)
+        } // hit me func to pick up new card and adds to player's total
     }
-    
-    //Computed Properties
-    var hasMoreCards = Bool
-    
-    var randomComputerScore = Int {
-        get {
-            return possibleComputerScore.randomElement()
+    func gameStatus() {
+        //define win or lose
+        if player.score == 21 {
+            print("BLACKJACK! YOU WIN")
+        } else if player.score > randomDealerScore {
+            print("You scored higher than the dealer! You win!")
+        } else {
+            print("You lose! Try again!")
         }
-    }
-    
-    
-    //MARK: Methods of game
-    
-   
-    
-    func stopHits()
-    func hitMe()
-   
-    func gameStatus()
-    
-    //draws a random number for the computer and determines the winner of the game.
-    func computerVsPlayer( Score:Int, randomComputerScore:Int) -> Int {
-        
-    }
-    
-    // resetting the game if the player wishes to continue
-    func newGame( ) {
-        deck.
-        
-    }
-    
+    } // status win or lose
 }
