@@ -40,7 +40,7 @@ class Game {
             let newRandomCard = deck.popLast()! //pulls card from deck
             player.cards.append(newRandomCard)// adds new card to hand
             player.score += newRandomCard.value // adds all card values together
-            print("score: \(player.score)")
+            print("Hand \(player.cards.map{ $0.stringify() }), score: \(player.score)") // used .map to stringify the Card
         } // hit me func to pick up new card and adds to player's total
     }
     func gameStatus() {

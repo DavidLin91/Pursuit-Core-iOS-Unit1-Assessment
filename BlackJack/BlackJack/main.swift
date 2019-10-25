@@ -38,11 +38,9 @@ let hit = "hit"
 let pass = "pass"
 
 
-
-
 startloop: repeat {
     gameloop: repeat{
-        print(userPrompt)
+        print(userPrompt) // make sure to leave user prompt inside the loop so you don't get blank returns after play again loop
         let userResponseHitOrPass = readLine()!.lowercased()
         if userResponseHitOrPass == hit.lowercased() {
             game.hitMe()
