@@ -38,28 +38,26 @@ let hit = "hit"
 let pass = "pass"
 
 
-print(userPrompt)
 
 
-repeat {
- 
-    var userResponseHitOrPass = ""
-    
-    repeat{
-    userResponseHitOrPass = readLine()!.lowercased()
-    if userResponseHitOrPass == hit.lowercased() {
-        game.hitMe()
-    } else if userResponseHitOrPass == pass.lowercased() {
-        print("The dealer has \(game.randomDealerScore) and you have \(game.player.score)")
-        print(game.gameStatus())
-    } else {
-        print("Please type \"hit\" or \"pass\"")
-    }
-} while game.player.score < 21 || userResponseHitOrPass == pass
+startloop: repeat {
+    gameloop: repeat{
+        print(userPrompt)
+        let userResponseHitOrPass = readLine()!.lowercased()
+        if userResponseHitOrPass == hit.lowercased() {
+            game.hitMe()
+        } else if userResponseHitOrPass == pass.lowercased() {
+            print("The dealer has \(game.randomDealerScore) and you have \(game.player.score)")
+            print(game.gameStatus())
+            break gameloop
+        } else {
+            print("Please type \"hit\" or \"pass\"")
+        }
+    } while game.player.score < 21
     
     // Option to play again
     var playAgain = String()
-    repeat {
+    playagainLoop: repeat {
         print("Better luck next time. Would you like to try again?")
         print("Please enter yes or no")
         playAgain = readLine() ?? ""
@@ -67,11 +65,12 @@ repeat {
             gameOver = true
         } else if playAgain == "yes" {
             game.newGame()
+            continue startloop
         } else {
             print("Please enter yes or no")
         }
         print()
     } while playAgain != "no" && playAgain != "yes"
-
+    
 }while !gameOver
-  
+

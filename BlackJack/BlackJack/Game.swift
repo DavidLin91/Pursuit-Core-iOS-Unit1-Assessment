@@ -40,7 +40,7 @@ class Game {
             let newRandomCard = deck.popLast()! //pulls card from deck
             player.cards.append(newRandomCard)// adds new card to hand
             player.score += newRandomCard.value // adds all card values together
-            print(player.score)
+            print("score: \(player.score)")
         } // hit me func to pick up new card and adds to player's total
     }
     func gameStatus() {
